@@ -1,0 +1,25 @@
+Fundamentally, the are only a few basic integer types:
+
+bool -- A type to hold true/false.
+
+char -- A type meant to hold native characters.  On some systems it can hold values -128 to 127, while on others it can hold 0 to 255.  On some historic systems, characters were not just 8 bits, so char could hold a different range of values.  Generally these days, you will only see chars that are 8 bits.  Also, I'm going to ignore some of the rules for unsigned types that only apply to historic machines that used one's complement or signed magnitude for represeting integers.  On AVR chips, char holds -128..127, while on ARM chips, char holds 0..255.
+
+unsigned char -- an unsigned type that is the same size as char.
+
+signed char -- a signed type that is the same size as char.
+
+short -- a signed type that holds at least -32768..32787.  Also can be written short int or int short if desired.  On both AVR and ARM systems, short is 16-bits.
+
+unsigned short -- an unsigned type the same size as short.  Also can be written unsigned short int, short unsigned int, or short unsigned.
+
+int -- a signed type that holds at least -32768..32767.  Also can be written int signed or signed int.  On AVR systems int is 16-bits (same size as short), while on ARM systems, int is 32-bits (same size as long).  An int must be at least as big as a short.
+
+unsigned int -- an unsigned type that is the same size as int.  Also can be written as int unsigned.
+
+long -- a signed type that holds at least -2147483648..2147483647.  Also can be written as long int, signed long int, etc. On both AVR and ARM, long is 32-bits.  Note, since AVR's are 8-bits, using long arithmetic will generate more instructions, while on ARM systems, 32-bits is usually a single instruction.  A long must be at least as big as an int.
+
+unsigned long -- an unsigned type that is the same size as long.
+
+long long -- A signed type that holds at least -9223372036854775808..9223372036854775808.  Both AVR and ARM systems use 64-bits for long long.  On AVR systems, long long can lead to serious code bloat, and particularly multiply/divide take many cycles to execute.  A long long must be at least as big as a long.
+
+unsigned long long -- An unsigned type the same size as long long.
